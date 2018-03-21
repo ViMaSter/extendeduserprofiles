@@ -1,0 +1,24 @@
+{
+	"name": "Extended Userprofiles",
+	"version": "0.0.1",
+	"author": "Vincent Mahnke",
+	"url": "https://github.com/ViMaSter/extendeduserprofiles",
+	"descriptionmsg": "MediaWiki-extension extending user-profiles for usage with the OHI-Tool",
+	"license-name": "GPL2.0+",
+	"type": "auth",
+	"requires": {
+		"MediaWiki": ">= 1.29.0"
+	},
+	"AuthManagerAutoConfig": {
+		"preauth": {
+			"ExtendedUserProfiles\\OHIDataAuthenticationProvider": {
+				"class": "ExtendedUserProfiles\\OHIDataAuthenticationProvider",
+				"sort": 101
+			}
+		}
+	},
+	"AutoloadClasses": {
+		"ExtendedUserProfiles\\OHIDataAuthenticationProvider": "ExtendedUserProfiles_Provider.php"
+	},
+	"manifest_version": 1
+}

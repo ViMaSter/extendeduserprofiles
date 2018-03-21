@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Vincent Mahnke"
+		]
+	},
+    "extendeduserprofiles-desc": "MediaWiki-Erweiterung die Nutzerprofile für die Benutzung des OHI-Tools erweitert",
+    "extendeduserprofiles-createaccount-birthyear":"Geburtsjahr",
+    "extendeduserprofiles-createaccount-birthyear-help":"Geburtsjahr in 4-stelliger Ganzzahl; genauere Informationen zu Ihrem Geburtsdatum werden nicht benötigt",
+    "extendeduserprofiles-createaccount-gender":"Geschlecht",
+    "extendeduserprofiles-createaccount-gender-help":"",
+    "extendeduserprofiles-createaccount-highest-educational-attainment":"Höchster Bildungsgrad",
+    "extendeduserprofiles-createaccount-highest-educational-attainment-help":"Ihr höchster, erreichter Abschluss einer Bildungseinrichtung"
+}
