@@ -1,7 +1,7 @@
 <?php
     namespace ExtendedUserProfiles
     {
-        class OHIDataAuthenticationProvider extends \MediaWiki\Auth\AbstractPreAuthenticationProvider
+        class OHIDataAuthenticationProvider extends \MediaWiki\Auth\AbstractSecondaryAuthenticationProvider
         {
             public function getAuthenticationRequests($action, array $options)
             {
@@ -9,6 +9,76 @@
                 {
                     return [new OHIDataAuthenticationRequest()];
                 }
+                return [];
+            }
+
+        	public function beginSecondaryAuthentication($user, array $reqs ) {
+                return \MediaWiki\Auth\AuthenticationResponse::newPass();
+            }
+
+        	public function beginSecondaryAccountCreation($user, $creator, array $reqs ) {
+                $OHIRequest = NULL;
+                foreach ($reqs as $key => $value)
+                {
+                    if (is_a($value, "ExtendedUserProfiles\OHIDataAuthenticationRequest"))
+                    {
+                        $OHIRequest = $value;
+                        break;
+                    }
+                }
+
+                if ($OHIRequest == NULL)
+                {
+                    return \MediaWiki\Auth\AuthenticationResponse::newFail(wfMessage('extendeduserprofiles-error-couldnt-resolve-request-in-creation'));
+                }
+
+                var_dump(34089374928374982374);
+                var_dump($OHIRequest->{'birthyear'});
+                var_dump($OHIRequest->{'gender'});
+                var_dump($OHIRequest->{'highest-educational-attainment'});
+
+                $user->setOption( 'birthyear', $OHIRequest->{'birthyear'} );
+                $user->setOption( 'gender', $OHIRequest->{'gender'} );
+                $user->setOption( 'highest-educational-attainment', $OHIRequest->{'highest-educational-attainment'} );
+                $user->saveSettings();
+                return \MediaWiki\Auth\AuthenticationResponse::newPass();
+            }
+
+            public function testForAccountCreation($user, $creator, array $reqs ) {
+                $OHIRequest = NULL;
+                foreach ($reqs as $key => $value)
+                {
+                    if (is_a($value, "ExtendedUserProfiles\OHIDataAuthenticationRequest"))
+                    {
+                        $OHIRequest = $value;
+                        break;
+                    }
+                }
+
+                if ($OHIRequest == NULL)
+                {
+                    return \StatusValue::newFatal( 'extendeduserprofiles-error-couldnt-resolve-request' );
+                }
+
+        		if ( $OHIRequest->{'birthyear'} !== null && $OHIRequest->{'birthyear'} !== '' ) {
+                    if ( $OHIRequest->{'birthyear'} < $OHIRequest::$allowedYearRange[0] ) {
+                        return \StatusValue::newFatal( 'extendeduserprofiles-error-birthyear-too-low' );
+                    }
+        			if ( $OHIRequest->{'birthyear'} > $OHIRequest::$allowedYearRange[1] ) {
+        				return \StatusValue::newFatal( 'extendeduserprofiles-error-birthyear-too-high' );
+        			}
+        		} else {
+                    return \StatusValue::newFatal( 'extendeduserprofiles-error-birthyear-empty' );
+                }
+
+        		if ( $OHIRequest->{'gender'} === null || $OHIRequest->{'gender'} === '' ) {
+                    return \StatusValue::newFatal( 'extendeduserprofiles-error-gender-empty' );
+                }
+        		if ( $OHIRequest->{'highest-educational-attainment'} === null || $OHIRequest->{'highest-educational-attainment'} === '' ) {
+                    return \StatusValue::newFatal( 'extendeduserprofiles-error-highest-educational-attainment-empty' );
+                }
+
+        		return \StatusValue::newGood();
             }
         }
 
@@ -22,12 +92,17 @@
 
             public $required = self::REQUIRED;
 
+            public static $allowedYearRange = [];
+
+            function __construct()
+            {
+                self::$allowedYearRange = [1900, (int)date('Y')];
+            }
+
             public function getFieldInfo() {
                 $yearOptions = array();
-                $currentYear = (int)date('Y');
-                for ($i = 1800; $i <= $currentYear; $i++)
-                {
-                    $yearOptions[(string)$i] = wfMessage((string)$i);
+                for ($i = self::$allowedYearRange[0]; $i <= self::$allowedYearRange[1]; $i++) {
+                    $yearOptions[(string)$i] = wfMessage("extendeduserprofiles-birthyear", (string)$i);
                 }
                 return [
                     'birthyear' => [ // yes, this is the year, not the precise date - done so intentionally to not require to much data from users

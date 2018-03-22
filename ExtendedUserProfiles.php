@@ -28,6 +28,3 @@
 		'descriptionmsg' => 'extendeduserprofiles-desc',
 		'license-name' => 'GPL-2.0+'
 	);
-
-
-    var_dump("AAAAAAAAA");

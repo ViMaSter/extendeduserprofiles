@@ -9,8 +9,13 @@
 	"requires": {
 		"MediaWiki": ">= 1.29.0"
 	},
+	"MessagesDirs": {
+		"MyExtension": [
+			"i18n"
+		]
+	},
 	"AuthManagerAutoConfig": {
-		"preauth": {
+		"secondaryauth": {
 			"ExtendedUserProfiles\\OHIDataAuthenticationProvider": {
 				"class": "ExtendedUserProfiles\\OHIDataAuthenticationProvider",
 				"sort": 101

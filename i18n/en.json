@@ -10,5 +10,13 @@
     "extendeduserprofiles-createaccount-gender":"Gender",
     "extendeduserprofiles-createaccount-gender-help":"",
     "extendeduserprofiles-createaccount-highest-educational-attainment":"Highest educational attainment",
-    "extendeduserprofiles-createaccount-highest-educational-attainment-help":"Your highest attained educational degree"
+    "extendeduserprofiles-createaccount-highest-educational-attainment-help":"Your highest attained educational degree",
+    "extendeduserprofiles-birthyear": "{{#time:Y|01 January $1}}",
+    "extendeduserprofiles-error-birthyear-too-low": "Birthyears before 1900 are not supported",
+    "extendeduserprofiles-error-birthyear-too-high": "Birthyears after the current year ({{#time:Y}}) are not supported",
+    "extendeduserprofiles-error-birthyear-empty": "The field {{extendeduserprofiles-birthyear}} is required and can not be left empty",
+    "extendeduserprofiles-error-gender-empty": "The field {{extendeduserprofiles-createaccount-gender}} is required and can not be left empty",
+    "extendeduserprofiles-error-highest-educational-attainment-empty": "The field {{extendeduserprofiles-createaccount-highest-educational-attainment}} is required and can not be left empty",
+    "extendeduserprofiles-error-couldnt-resolve-request": "Internal error, contact the developer about error-code 'extendeduserprofiles-error-couldnt-resolve-request'",
+    "extendeduserprofiles-error-couldnt-resolve-request-in-creation": "Internal error, contact the developer about error-code 'extendeduserprofiles-error-couldnt-resolve-request-in-creation'"
 }

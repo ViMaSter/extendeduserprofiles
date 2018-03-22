@@ -10,5 +10,13 @@
     "extendeduserprofiles-createaccount-gender":"Geschlecht",
     "extendeduserprofiles-createaccount-gender-help":"",
     "extendeduserprofiles-createaccount-highest-educational-attainment":"Höchster Bildungsgrad",
-    "extendeduserprofiles-createaccount-highest-educational-attainment-help":"Dein höchster, erreichter Abschluss einer Bildungseinrichtung"
-}
+    "extendeduserprofiles-createaccount-highest-educational-attainment-help":"Dein höchster, erreichter Abschluss einer Bildungseinrichtung",
+    "extendeduserprofiles-birthyear": "{{#time:Y|01 January $1}}",
+    "extendeduserprofiles-error-birthyear-too-low": "Geburtsjahre vor 1900 werden nicht unterstüzt",
+    "extendeduserprofiles-error-birthyear-too-high": "Geburtsjahre nach dem aktuellen ({{#time:Y}}) werden nicht unterstüzt",
+    "extendeduserprofiles-error-birthyear-empty": "Das Feld {{extendeduserprofiles-birthyear}} wird vorrausgesetzt und kann nicht frei gelassen werden",
+    "extendeduserprofiles-error-gender-empty": "Das Feld '{{extendeduserprofiles-createaccount-genders}}' wird vorrausgesetzt und kann nicht frei gelassen werden",
+    "extendeduserprofiles-error-highest-educational-attainment-empty": "Das Feld '{{extendeduserprofiles-createaccount-highest-educational-attainment}}' wird vorrausgesetzt und kann nicht frei gelassen werden",
+    "extendeduserprofiles-error-couldnt-resolve-request": "Interner Fehler, Fehler-Code 'extendeduserprofiles-error-couldnt-resolve-request'",
+    "extendeduserprofiles-error-couldnt-resolve-request-in-creation": "Interner Fehler, Fehler-Code 'extendeduserprofiles-error-couldnt-resolve-request-in-creation'"
+    }
