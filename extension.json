@@ -1,19 +1,22 @@
 {
 	"name": "Extended Userprofiles",
 	"version": "0.0.1",
-	"author": "Vincent Mahnke",
+	"author": "[https://vincent.mahn.ke/ Vincent Mahnke]",
 	"url": "https://github.com/ViMaSter/extendeduserprofiles",
-	"descriptionmsg": "MediaWiki-extension extending user-profiles for usage with the OHI-Tool",
+	"descriptionmsg": "extendeduserprofiles-desc",
 	"license-name": "GPL2.0+",
-	"type": "auth",
+	"type": "parserhook",
 	"requires": {
 		"MediaWiki": ">= 1.29.0"
 	},
 	"MessagesDirs": {
-		"MyExtension": [
+		"ExtendedUserprofiles": [
 			"i18n"
 		]
 	},
+    "ExtensionMessagesFiles": {
+        "ExtendedUserprofilesMagic": "UserProfileReader.i18n.magic.php"
+    },
 	"AuthManagerAutoConfig": {
 		"secondaryauth": {
 			"ExtendedUserProfiles\\OHIDataAuthenticationProvider": {
@@ -23,7 +26,12 @@
 		}
 	},
 	"AutoloadClasses": {
-		"ExtendedUserProfiles\\OHIDataAuthenticationProvider": "ExtendedUserProfiles_Provider.php"
+        "ExtendedUserProfiles\\OHIDataAuthenticationProvider": "ExtendedUserProfiles_Provider.php",
+        "ExtendedUserProfiles\\UserPropertiesHelper": "UserProfileReader.php",
+        "ExtendedUserProfiles\\UserPropertiesReader": "UserProfileReader.php"
+	},
+	"Hooks": {
+		"ParserFirstCallInit": "ExtendedUserProfiles\\UserPropertiesReader::init"
 	},
 	"manifest_version": 1
 }
