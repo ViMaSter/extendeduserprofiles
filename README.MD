@@ -25,19 +25,22 @@ To get the values of the user currently watching the page use the following macr
 ```
 {{ #currentUserPropertyEcho: gender }}  
 {{ #currentUserPropertyEcho: highest-educational-attainment }}
-{{ #currentUserPropertyEcho: birthyear }} ```
+{{ #currentUserPropertyEcho: birthyear }}
+```
 
 ### Retrieving values for a specific user
 To get the values of a specific user using the account-name use
 ```
 {{ #userByNamePropertyEcho: myusername | gender }}  
 {{ #userByNamePropertyEcho: myusername | highest-educational-attainment }}
-{{ #userByNamePropertyEcho: myusername | birthyear }} ```
+{{ #userByNamePropertyEcho: myusername | birthyear }}
+```
 To get the values of a specific user using the account-ID use
 ```
 {{ #userByIDPropertyEcho: 1337 | gender }}  
 {{ #userByIDPropertyEcho: 1337 | highest-educational-attainment }}
-{{ #userByIDPropertyEcho: 1337 | birthyear }} ```
+{{ #userByIDPropertyEcho: 1337 | birthyear }}
+```
 
 If the no value can be found, an empty string of characters is returned.
 
@@ -53,4 +56,5 @@ For this, simply append another ` | ` and the default value you want to return. 
 {{ #userByIDPropertyEcho: 1337 | birthyear | someday }}                              // returns "someday", if no birthyear was specified at registration
 {{ #currentUserPropertyEcho: gender | unavailable }}                                 // returns "unavailable", if no gender was specified at registration
 {{ #currentUserPropertyEcho: highest-educational-attainment | not set }}             // returns "not set", if not specified at registration
-{{ #currentUserPropertyEcho: birthyear | n/a }}                                      // returns "n/a", if no birthyear was specified at registration```
+{{ #currentUserPropertyEcho: birthyear | n/a }}                                      // returns "n/a", if no birthyear was specified at registration
+```
