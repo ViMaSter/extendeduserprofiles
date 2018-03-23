@@ -32,11 +32,6 @@
                     return \MediaWiki\Auth\AuthenticationResponse::newFail(wfMessage('extendeduserprofiles-error-couldnt-resolve-request-in-creation'));
                 }
 
-                var_dump(34089374928374982374);
-                var_dump($OHIRequest->{'birthyear'});
-                var_dump($OHIRequest->{'gender'});
-                var_dump($OHIRequest->{'highest-educational-attainment'});
-
                 $user->setOption( 'birthyear', $OHIRequest->{'birthyear'} );
                 $user->setOption( 'gender', $OHIRequest->{'gender'} );
                 $user->setOption( 'highest-educational-attainment', $OHIRequest->{'highest-educational-attainment'} );
