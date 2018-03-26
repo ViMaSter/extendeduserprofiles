@@ -18,5 +18,7 @@
     "extendeduserprofiles-error-gender-empty": "Das Feld '{{extendeduserprofiles-createaccount-genders}}' wird vorrausgesetzt und kann nicht frei gelassen werden",
     "extendeduserprofiles-error-highest-educational-attainment-empty": "Das Feld '{{extendeduserprofiles-createaccount-highest-educational-attainment}}' wird vorrausgesetzt und kann nicht frei gelassen werden",
     "extendeduserprofiles-error-couldnt-resolve-request": "Interner Fehler, Fehler-Code 'extendeduserprofiles-error-couldnt-resolve-request'",
-    "extendeduserprofiles-error-couldnt-resolve-request-in-creation": "Interner Fehler, Fehler-Code 'extendeduserprofiles-error-couldnt-resolve-request-in-creation'"
-    }
+    "extendeduserprofiles-error-couldnt-resolve-request-in-creation": "Interner Fehler, Fehler-Code 'extendeduserprofiles-error-couldnt-resolve-request-in-creation'",
+    "extendeduserprofiles-userpage-default-content": "Geschlecht: \\{\\{ #userByNamePropertyEcho: \\%1$s | gender }}\n\nHöchster Bildungsgrad: \\{\\{ #userByNamePropertyEcho: \\%1$s | highest-educational-attainment }}\n\nGeburtsjahr: \\{\\{ #userByNamePropertyEcho: \\%1$s | birthyear }}",
+    "extendeduserprofiles-userpage-default-summary": "Benutzerprofil"
+}

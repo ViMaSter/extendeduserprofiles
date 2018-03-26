@@ -58,3 +58,9 @@ For this, simply append another ` | ` and the default value you want to return. 
 {{ #currentUserPropertyEcho: highest-educational-attainment | not set }}             // returns "not set", if not specified at registration
 {{ #currentUserPropertyEcho: birthyear | n/a }}                                      // returns "n/a", if no birthyear was specified at registration
 ```
+
+### Default user wiki-article
+Once this extension is installed, user-articles are automatically generated, when a user signs up. (I.e. http://example.org/mediawiki/index.php/User:MyCoolUsername)  
+If you want to change the layout of the automatically generated user-articles, change the `extendeduserprofiles-userpage-default-content`-property inside the localization-files located in the `i18n`-folder.  
+`\\%1$s` is replaced with the username of the newly added user.  
+Printing functions like `{{ #userByNamePropertyEcho: \\%1$s | gender }}` need to be escaped using double backslashes, before each lfet curly bracket like currently set up.

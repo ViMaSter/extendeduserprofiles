@@ -73,6 +73,17 @@
                     return \StatusValue::newFatal( 'extendeduserprofiles-error-highest-educational-attainment-empty' );
                 }
 
+                $message = new \Message('extendeduserprofiles-userpage-default-content');
+                $content = str_replace('\\', "", $message->parse());
+                $content = sprintf($content, $user->getName());
+
+				$context = new \RequestContext();
+				$context->setTitle( $user->getUserPage() );
+                $article = \Article::newFromTitle($user->getUserPage(), $context);
+                $page = $article->getPage();
+                $summaryMessage = new \Message('extendeduserprofiles-userpage-default-summary');
+                $page->doEditContent(new \WikitextContent($content), $summaryMessage->parse());
+
         		return \StatusValue::newGood();
             }
         }

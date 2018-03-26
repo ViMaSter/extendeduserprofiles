@@ -18,5 +18,7 @@
     "extendeduserprofiles-error-gender-empty": "The field {{extendeduserprofiles-createaccount-gender}} is required and can not be left empty",
     "extendeduserprofiles-error-highest-educational-attainment-empty": "The field {{extendeduserprofiles-createaccount-highest-educational-attainment}} is required and can not be left empty",
     "extendeduserprofiles-error-couldnt-resolve-request": "Internal error, contact the developer about error-code 'extendeduserprofiles-error-couldnt-resolve-request'",
-    "extendeduserprofiles-error-couldnt-resolve-request-in-creation": "Internal error, contact the developer about error-code 'extendeduserprofiles-error-couldnt-resolve-request-in-creation'"
+    "extendeduserprofiles-error-couldnt-resolve-request-in-creation": "Internal error, contact the developer about error-code 'extendeduserprofiles-error-couldnt-resolve-request-in-creation'",
+    "extendeduserprofiles-userpage-default-content": "Gender: \\{\\{ #userByNamePropertyEcho: %1$s | gender }}\n\nHighest educational attainment: \\{\\{ #userByNamePropertyEcho: %1$s | highest-educational-attainment }}\n\nBirthyear: \\{\\{ #userByNamePropertyEcho: %1$s | birthyear }}",
+    "extendeduserprofiles-userpage-default-summary": "User profile"
 }
