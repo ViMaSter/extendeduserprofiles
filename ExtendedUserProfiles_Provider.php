@@ -39,40 +39,7 @@
                 return \MediaWiki\Auth\AuthenticationResponse::newPass();
             }
 
-            public function testForAccountCreation($user, $creator, array $reqs ) {
-                $OHIRequest = NULL;
-                foreach ($reqs as $key => $value)
-                {
-                    if (is_a($value, "ExtendedUserProfiles\OHIDataAuthenticationRequest"))
-                    {
-                        $OHIRequest = $value;
-                        break;
-                    }
-                }
-
-                if ($OHIRequest == NULL)
-                {
-                    return \StatusValue::newFatal( 'extendeduserprofiles-error-couldnt-resolve-request' );
-                }
-
-        		if ( $OHIRequest->{'birthyear'} !== null && $OHIRequest->{'birthyear'} !== '' ) {
-                    if ( $OHIRequest->{'birthyear'} < $OHIRequest::$allowedYearRange[0] ) {
-                        return \StatusValue::newFatal( 'extendeduserprofiles-error-birthyear-too-low' );
-                    }
-        			if ( $OHIRequest->{'birthyear'} > $OHIRequest::$allowedYearRange[1] ) {
-        				return \StatusValue::newFatal( 'extendeduserprofiles-error-birthyear-too-high' );
-        			}
-        		} else {
-                    return \StatusValue::newFatal( 'extendeduserprofiles-error-birthyear-empty' );
-                }
-
-        		if ( $OHIRequest->{'gender'} === null || $OHIRequest->{'gender'} === '' ) {
-                    return \StatusValue::newFatal( 'extendeduserprofiles-error-gender-empty' );
-                }
-        		if ( $OHIRequest->{'highest-educational-attainment'} === null || $OHIRequest->{'highest-educational-attainment'} === '' ) {
-                    return \StatusValue::newFatal( 'extendeduserprofiles-error-highest-educational-attainment-empty' );
-                }
-
+            public function postAccountCreation( $user, $creator, \MediaWiki\Auth\AuthenticationResponse $response ) {
                 $message = new \Message('extendeduserprofiles-userpage-default-content');
                 $content = str_replace('\\', "", $message->parse());
                 $content = sprintf($content, $user->getName());
