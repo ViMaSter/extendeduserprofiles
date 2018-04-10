@@ -3,11 +3,12 @@
 This extention extends user-profiles to be conform to the requirements for the [OHI-Tool](https://github.com/ViMaSter/OHI-Tool/)-extension.
 
 ## Installation
-1. Download this repository and place the folder into `[MEDIAWIKI]\extensions`.  
-(This README.md-file should be located at `[MEDIAWIKI]\extensions\ExtendedUserProfiles\README.md` then.)
-2. Add the line `wfLoadExtension( 'ExtendedUserProfiles' );` to your `[MEDIAWIKI]\LocalSettings.php`-file next to all other `wfLoadExtension()`-calls.  
+1. Download this repository and place the folder into `[MEDIAWIKI]\extensions`.
+2. Rename the folder to `ExtendedUserProfiles` (with capital E, U and P) to match the casing of this repository.  
+(This README.md-file should now be located at `[MEDIAWIKI]\extensions\ExtendedUserProfiles\README.md`.)
+3. Add the line `wfLoadExtension( 'ExtendedUserProfiles' );` to your `[MEDIAWIKI]\LocalSettings.php`-file next to all other `wfLoadExtension()`-calls.  
 The order of the [OHI-Tool](https://github.com/ViMaSter/OHI-Tool/)'s `wfLoadExtension()`-call and this extensions' is irrelevant.
-3. If present, remove the line `'gender' => 'unknown',` from `[MEDIAWIKI]\includes\DefaultSettings.php`.  
+4. If present, remove the line `'gender' => 'unknown',` from `[MEDIAWIKI]\includes\DefaultSettings.php`.  
 For more information about default parameters, consult [**Retrieving values with a fallback**](#retrieving-values-with-a-fallback) in the **Usage**-part of this file.
 
 ## Usage
