@@ -11,7 +11,7 @@
     "extendeduserprofiles-createaccount-gender-help":"",
     "extendeduserprofiles-createaccount-highest-educational-attainment":"Höchster Bildungsgrad",
     "extendeduserprofiles-createaccount-highest-educational-attainment-help":"Ihr höchster, erreichter Abschluss einer Bildungseinrichtung",
-    "extendeduserprofiles-createaccount-current-occupation":"Momentane Beschäftigung",
+    "extendeduserprofiles-createaccount-current-occupation":"Momentane Tätigkeit",
     "extendeduserprofiles-createaccount-current-occupation-help":"Job, Profession oder Werte wie 'Student' or 'Arbeitslos'",
     "extendeduserprofiles-birthyear": "{{#time:Y|01 January $1}}",
     "extendeduserprofiles-userpage-default-content": "Geschlecht: \\{\\{ #userByNamePropertyEcho: \\%1$s | gender }}\n\nHöchster Bildungsgrad: \\{\\{ #userByNamePropertyEcho: \\%1$s | highest-educational-attainment }}\n\nGeburtsjahr: \\{\\{ #userByNamePropertyEcho: \\%1$s | birthyear }}\n\nAktuelle Beschäftigung: \\{\\{ #userByNamePropertyEcho: \\%1$s | current-occupation }}",
