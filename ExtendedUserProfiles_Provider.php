@@ -35,6 +35,7 @@
                 $user->setOption( 'birthyear', $OHIRequest->{'birthyear'} );
                 $user->setOption( 'gender', $OHIRequest->{'gender'} );
                 $user->setOption( 'highest-educational-attainment', $OHIRequest->{'highest-educational-attainment'} );
+                $user->setOption( 'current-occupation', $OHIRequest->{'current-occupation'} );
                 $user->saveSettings();
                 return \MediaWiki\Auth\AuthenticationResponse::newPass();
             }
@@ -93,6 +94,11 @@
                         'type' => 'string',
                         'label' => wfMessage( 'extendeduserprofiles-createaccount-highest-educational-attainment' ),
                         'help' => wfMessage( 'extendeduserprofiles-createaccount-highest-educational-attainment-help' ),
+                    ],
+                    'current-occupation' => [
+                        'type' => 'string',
+                        'label' => wfMessage( 'extendeduserprofiles-createaccount-current-occupation' ),
+                        'help' => wfMessage( 'extendeduserprofiles-createaccount-current-occupation-help' ),
                     ],
                 ];
             }

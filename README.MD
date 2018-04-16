@@ -19,6 +19,7 @@ After installation, the registration form will be populated with additional fiel
 | `birthyear`                      | Year of birth of the user in 4 integers (i.e. 1982, 2003, ...)
 | `gender`                         | Gender of the user (string of characters; non-binary)
 | `highest-educational-attainment` | Highest educational attainment of the user (free-text field; not a selection of predefined-items)
+| `current-occupation`             | Job or profession of the user at point of registration
 
 Once a user signed up and filled out these fields, you can get the value on any page using two ways.
 
@@ -28,6 +29,7 @@ To get the values of the user currently watching the page use the following macr
 {{ #currentUserPropertyEcho: gender }}  
 {{ #currentUserPropertyEcho: highest-educational-attainment }}
 {{ #currentUserPropertyEcho: birthyear }}
+{{ #currentUserPropertyEcho: current-occupation }}
 ```
 
 ### Retrieving values for a specific user
@@ -36,12 +38,14 @@ To get the values of a specific user using the account-name use
 {{ #userByNamePropertyEcho: myusername | gender }}  
 {{ #userByNamePropertyEcho: myusername | highest-educational-attainment }}
 {{ #userByNamePropertyEcho: myusername | birthyear }}
+{{ #userByNamePropertyEcho: myusername | current-occupation }}
 ```
 To get the values of a specific user using the account-ID use
 ```
 {{ #userByIDPropertyEcho: 1337 | gender }}  
 {{ #userByIDPropertyEcho: 1337 | highest-educational-attainment }}
 {{ #userByIDPropertyEcho: 1337 | birthyear }}
+{{ #userByIDPropertyEcho: 1337 | current-occupation }}
 ```
 
 If the no value can be found, an empty string of characters is returned.
@@ -53,12 +57,15 @@ For this, simply append another ` | ` and the default value you want to return. 
 {{ #userByNamePropertyEcho: mm | gender | unknown }}                                 // returns "unknown", if no gender was specified at registration
 {{ #userByNamePropertyEcho: mm | highest-educational-attainment | left blank }}      // returns "left blank", if not specified at registration
 {{ #userByNamePropertyEcho: mm | birthyear | 200 B.C. }}                             // returns "200 B.C.", if no birthyear was specified at registration
+{{ #userByNamePropertyEcho: mm | current-occupation | none }}                        // returns "none", if not specified at registration
 {{ #userByIDPropertyEcho: 1337 | gender | not specified }}                           // returns "not specified", if no gender was specified at registration
 {{ #userByIDPropertyEcho: 1337 | highest-educational-attainment | not applicable }}  // returns "not applicable", if not specified at registration
 {{ #userByIDPropertyEcho: 1337 | birthyear | someday }}                              // returns "someday", if no birthyear was specified at registration
+{{ #userByIDPropertyEcho: 1337 | current-occupation | Freelance web designer }}      // returns "Freelance web designer", if not specified at registration
 {{ #currentUserPropertyEcho: gender | unavailable }}                                 // returns "unavailable", if no gender was specified at registration
 {{ #currentUserPropertyEcho: highest-educational-attainment | not set }}             // returns "not set", if not specified at registration
 {{ #currentUserPropertyEcho: birthyear | n/a }}                                      // returns "n/a", if no birthyear was specified at registration
+{{ #currentUserPropertyEcho: current-occupation | pensioner }}                       // returns "pensioner", if not specified at registration
 ```
 
 ### Default user wiki-article
